@@ -1,7 +1,5 @@
 ## Install
 
-[npm][]:
-
 ```sh
 npm install 
 ```
