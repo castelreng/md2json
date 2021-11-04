@@ -4,6 +4,8 @@ import { toMarkdown } from 'mdast-util-to-markdown';
 import { readFileSync } from 'fs';
 import htmlToPdfmake from "html-to-pdfmake"
 import { JSDOM } from 'jsdom';
+import { remark } from 'remark';
+import remarkHtml from 'remark-html';
 
 const app = express()
 const port = 3000
@@ -23,19 +25,20 @@ app.get('/getMDFromJsonTree', (req, res) => {
     res.send(markdownDisplay);
 });
 
+/**
+ * 1. Convert markdown into HTML
+ * 2. Convert HTML into Pdfmake JSON structure
+ */
 app.get('/getJsonForPdfmake', (req, res) => {
   const window = new JSDOM().window;
-  var jsonData = htmlToPdfmake(`
-    <div>
-      <h1>My title</h1>
-      <p>
-        This is a sentence with a <strong>bold word</strong>, <em>one in italic</em>,
-        and <u>one with underline</u>. And finally <a href="https://www.somewhere.com">a link</a>.
-      </p>
-    </div>
-  `, window);
-
-  res.json(jsonData)
+  remark()
+    .use(remarkHtml)
+    .process(`# h1 Heading 8-)
+      ## h2 Heading`)
+    .then((file) => {
+      var jsonData = htmlToPdfmake(String(file), window);
+      res.json(jsonData)
+    });
 });
 
 app.listen(port, () => {
