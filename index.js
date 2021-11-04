@@ -35,8 +35,8 @@ app.get('/getJsonForPdfmake', (req, res) => {
     .use(remarkHtml)
     .process(`# h1 Heading 8-)
       ## h2 Heading`)
-    .then((file) => {
-      var jsonData = htmlToPdfmake(String(file), window);
+    .then((outputHTML) => {
+      var jsonData = htmlToPdfmake(String(outputHTML), window);
       res.json(jsonData)
     });
 });
