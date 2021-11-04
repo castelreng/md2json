@@ -11,9 +11,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/html-to-pdfmake": "^2.1.0",
+    "@types/jsdom": "^16.2.13",
+    "@types/pdfmake": "^0.1.19",
+    "@types/window-or-global": "^1.0.4",
     "express": "^4.17.1",
+    "html-to-pdfmake": "^2.3.6",
+    "jsdom": "^18.0.1",
     "mdast-util-from-markdown": "^1.0.4",
     "mdast-util-to-markdown": "^1.2.4",
-    "remark": "^14.0.1"
+    "pdfmake": "^0.2.2",
+    "remark": "^14.0.1",
+    "window": "^4.2.7"
   }
 }
