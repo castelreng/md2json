@@ -25,7 +25,7 @@ app.get('/getMDFromJsonTree', (req, res) => {
 
 app.get('/getJsonForPdfmake', (req, res) => {
   const window = new JSDOM().window;
-  var html = htmlToPdfmake(`
+  var jsonData = htmlToPdfmake(`
     <div>
       <h1>My title</h1>
       <p>
@@ -35,7 +35,7 @@ app.get('/getJsonForPdfmake', (req, res) => {
     </div>
   `, window);
 
-  res.json(html)
+  res.json(jsonData)
 });
 
 app.listen(port, () => {
