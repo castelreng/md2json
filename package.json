@@ -1,0 +1,19 @@
+{
+  "name": "md2json",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mdast-util-from-markdown": "^1.0.4",
+    "mdast-util-to-markdown": "^1.2.4",
+    "remark": "^14.0.1"
+  }
+}
